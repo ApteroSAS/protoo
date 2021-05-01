@@ -27,12 +27,11 @@ class WebSocketIOServer extends EnhancedEventEmitter {
     // Run a WebSocket server instance.
     // @type {WebSocket-Node.WebSocketIOServer}
     //https://socket.io/docs/v4/server-api/#new-Server-httpServer-options
-    this._wsServer = new socketio(httpServer, options);
+    this._wsServer = socketio(httpServer, options);
     this._wsServer.on("connection", (socket) => {
       console.log("a user connected");
       this._onConnection(socket);
     });
-    this._wsServer.onAny((request) => this._onConnection(request)); // TODO debug here
   }
 
   /**
@@ -48,8 +47,6 @@ class WebSocketIOServer extends EnhancedEventEmitter {
   }
 
   _onConnection(socket) {
-    logger.debug("onRequest() [origin:%s | path:\"%s\"]", request.origin, request.resource);
-
     // If there are no listeners, reject the request.
     if (this.listenerCount("connectionrequest") === 0) {
       logger.error("_onRequest() | no listeners for \"connectionrequest\" event, " +
@@ -60,19 +57,11 @@ class WebSocketIOServer extends EnhancedEventEmitter {
     let replied = false;
 
     try {
-        console.log(socket.handshake.query.param);
+      console.log("query :",socket.handshake.query);
       // Emit 'connectionrequest' event.
       this.emit("connectionrequest",
-        // Connection data.
-        /*
-        // The client indicates the roomId and peerId in the URL query.
-        const u = url.parse(info.request.url, true);
-        const roomId = u.query['roomId'];
-        const peerId = u.query['peerId'];//TODO
-         */
         {
-          request: socket.handshake.query,
-          origin: "NO origin",//TODO verify
+          query: socket.handshake.query,
           socket: socket
         },
         // accept() function.
