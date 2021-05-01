@@ -1,6 +1,7 @@
 const { version } = require('../package.json');
 const Peer = require('./Peer');
 const WebSocketTransport = require('./transports/WebSocketTransport');
+const WebSocketIOTransport = require('./transports/WebSocketIOTransport');
 
 /**
  * Expose mediasoup-client version.
@@ -22,3 +23,4 @@ exports.Peer = Peer;
  * @type {Class}
  */
 exports.WebSocketTransport = WebSocketTransport;
+exports.WebSocketIOTransport = WebSocketIOTransport;

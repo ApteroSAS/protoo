@@ -1,6 +1,7 @@
 const { version } = require('../package.json');
 const Room = require('./Room');
 const WebSocketServer = require('./transports/WebSocketServer');
+const WebSocketIOServer = require('./transports/WebSocketIOServer');
 
 /**
  * Expose mediasoup version.
@@ -22,3 +23,4 @@ exports.Room = Room;
  * @type {Class}
  */
 exports.WebSocketServer = WebSocketServer;
+exports.WebSocketIOServer = WebSocketIOServer;
