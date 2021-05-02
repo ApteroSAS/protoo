@@ -56,7 +56,7 @@ module.exports =
 			}
 		}],
 		'keyword-spacing': 2,
-		'linebreak-style': [ 2, 'unix' ],
+		//'linebreak-style': [ 2, 'unix' ],
 		'lines-around-comment': [ 2,
 		{
 			allowBlockStart: true,
