@@ -30,7 +30,7 @@ module.exports =
 		'arrow-parens': [ 2, 'always' ],
 		'arrow-spacing': 2,
 		'block-spacing': [ 2, 'always' ],
-		'brace-style': [ 2, 'allman', { allowSingleLine: true } ],
+		'brace-style': [ 2, '1tbs', { allowSingleLine: false } ],
 		'camelcase': 2,
 		'comma-dangle': 2,
 		'comma-spacing': [ 2, { before: false, after: true } ],
@@ -40,7 +40,7 @@ module.exports =
 		'func-call-spacing': 2,
 		'generator-star-spacing': 2,
 		'guard-for-in': 2,
-		'indent': [ 2, 'tab', { 'SwitchCase': 1 } ],
+		'indent': [ 2, 'space', { 'SwitchCase': 1 } ],
 		'key-spacing': [ 2,
 		{
 			singleLine:
